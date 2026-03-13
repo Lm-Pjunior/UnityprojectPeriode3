@@ -1,36 +1,68 @@
+using JetBrains.Annotations;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MovementSystem : MonoBehaviour
 {
     [SerializeField] private float _speed = 20f;
     [SerializeField] private float _jumpForce = 26f;
 
-    private bool _grounded;
+    private bool _grounded =true;
     private Rigidbody2D _body;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Awaken()
     {
-       _body = GetComponent<Rigidbody2D>();
+        _body = GetComponent<Rigidbody2D>();
     }
 
-    public void LMovement()
+
+    public void Movement() //movementsystem with fixedupdate which fixes it per frame so that deltatime isn't neccesary.
     {
-        transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        float HorizontalInput = Input.GetAxis("Horizontal");
+        _body.linearVelocity = new Vector2(HorizontalInput * _speed, _body.linearVelocity.y);
+
+        if (HorizontalInput > 0.01f)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        if (HorizontalInput > 0.01f)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
-    public void RMovement()
+  
+
+        public void jump()
     {
-        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        Collision2D collision = new Collision2D();
+        if (collision.gameObject.CompareTag("grounded"))
+        {
 
-    }
-    // it's something like this: transform.position += (new Vector3(0,1,0); * Time.deltaTime * _speed)
-    // if(Input.GetKey(KeyCode.A)){ body.linearVelocityX = -5; }
+            _grounded = true;
+        }
+        if (_grounded)
+        {
+            _body.linearVelocity = new Vector2(_body.linearVelocity.x, _jumpForce);
+            _grounded = false;
+            Debug.Log("jumping!");
+        }
 
-    // Update is called once per frame
-    void Update()
+      }
+     public void grounded()
     {
-        
+        _grounded = true;
     }
-}
+    
+    }
+      //ask Jamiro for help
+
+    
+  
+
+
+    
+
+
