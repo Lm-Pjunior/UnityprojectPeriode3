@@ -38,7 +38,7 @@ public class MovementSystem : MonoBehaviour
         public void jump()
     {
         Collision2D collision = new Collision2D();
-        if (collision.gameObject.CompareTag("grounded"))
+        if (collision.gameObject.CompareTag("Grounded"))
         {
 
             _grounded = true;
@@ -51,18 +51,23 @@ public class MovementSystem : MonoBehaviour
         }
 
       }
-     public void grounded()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        _grounded = true;
+        if (collision.gameObject.CompareTag("Grounded"))
+        {
+            Debug.Log("Comparing Grounded");
+            _grounded = true; //still doesn't work D:
+        }
     }
-    
-    }
-      //ask Jamiro for help
 
-    
-  
+}
+//ask Jamiro for help
+//Scripting: GetComponent<Rigidbody2D>().gravityScale = 0.5f; for the gravity switch
 
 
-    
+
+
+
+
 
 

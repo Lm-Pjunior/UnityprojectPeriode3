@@ -46,14 +46,7 @@ public class UserInput : MonoBehaviour
         }
 
     }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("grounded"))
-        {
-            Debug.Log("Comparing grounded");
-            _playerMovement.grounded(); //still doesn't work D:
-        }
-    }
+    
 }
 
 
