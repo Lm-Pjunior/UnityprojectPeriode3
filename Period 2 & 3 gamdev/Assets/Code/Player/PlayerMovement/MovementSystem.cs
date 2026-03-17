@@ -62,7 +62,6 @@ public class MovementSystem : MonoBehaviour
 
 }
 //ask Jamiro for help
-//Scripting: GetComponent<Rigidbody2D>().gravityScale = 0.5f; for the gravity switch
 
 
 
