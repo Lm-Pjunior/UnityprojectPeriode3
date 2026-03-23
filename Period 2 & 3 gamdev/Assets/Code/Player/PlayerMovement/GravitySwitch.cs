@@ -2,20 +2,30 @@ using UnityEngine;
 
 public class GravitySwitch : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Rigidbody2D _rb;
+
+    private float setGravity;
+
 
     public void gravitySwitch()
     {
-
-       GetComponent<Rigidbody2D>().gravityScale = -1f;
-
+        //I should put the gameobject here that i want to chance
+        
+        _rb.gravityScale *= -1;
+        setGravity = _rb.gravityScale;
+        //_setGravity = _setGravity; //it doesn't catch this command line
     }
 
 
+    public void massLoss()
+    {
+        _rb.mass = 100;
+    }
 
+    public void massNorm()
+    {
+        _rb.mass = 0;
+    }
 
 
 

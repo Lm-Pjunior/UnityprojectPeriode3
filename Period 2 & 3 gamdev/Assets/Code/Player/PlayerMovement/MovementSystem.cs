@@ -6,9 +6,9 @@ using UnityEngine.UIElements;
 public class MovementSystem : MonoBehaviour
 {
     [SerializeField] private float _speed = 20f;
-    [SerializeField] private float _jumpForce = 26f;
+    
 
-    private bool _grounded =true;
+    
     private Rigidbody2D _body;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,31 +35,8 @@ public class MovementSystem : MonoBehaviour
 
   
 
-        public void jump()
-    {
-        Collision2D collision = new Collision2D();
-        if (collision.gameObject.CompareTag("Grounded"))
-        {
-
-            _grounded = true;
-        }
-        if (_grounded)
-        {
-            _body.linearVelocity = new Vector2(_body.linearVelocity.x, _jumpForce);
-            _grounded = false;
-            Debug.Log("jumping!");
-        }
-
-      }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Grounded"))
-        {
-            Debug.Log("Comparing Grounded");
-            _grounded = true; //still doesn't work D:
-        }
-    }
-
+     
+   
 }
 //ask Jamiro for help
 //Scripting: GetComponent<Rigidbody2D>().gravityScale = 0.5f; for the gravity switch

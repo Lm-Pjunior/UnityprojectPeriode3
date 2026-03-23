@@ -3,14 +3,14 @@ using UnityEngine;
 public class UserInput : MonoBehaviour
 {
     private MovementSystem _playerMovement;
-
+   [SerializeField] private GravitySwitch _switchGravity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
   
     void Start()
     {
         _playerMovement = GetComponent<MovementSystem>();
         if (_playerMovement != null) _playerMovement.Awaken();
-
+        
     }
 
     // Update is called once per frame
@@ -28,22 +28,27 @@ public class UserInput : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Q))
-        {
-            Debug.Log("Gravity works");
-
-        }
 
        
         //currently doesn't activate the jumping
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("jumping works");
-            _playerMovement.jump();
+        if (Input.GetKey(KeyCode.Space))
+        {        
+            _switchGravity.massLoss();
         }
+        else
+        {
+            _switchGravity.massNorm();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _switchGravity.gravitySwitch();
+        }
+        
 
     }
     
