@@ -15,12 +15,12 @@ public class SpawnObject : MonoBehaviour
 
     
     [SerializeField] private GameObject _GameObjectName;
-    [SerializeField] private List<Transform> _GOSpawnLocation = new List<Transform>();
+    [SerializeField] private List<Transform> _GameObjectSpawnLocation = new List<Transform>();
 
 
     public void Spawn()
     {
-        foreach (Transform location in _GOSpawnLocation)
+        foreach (Transform location in _GameObjectSpawnLocation)
         {
             Instantiate(_GameObjectName, location.position, location.rotation);
         }
