@@ -7,15 +7,11 @@ public class MovementSystem : MonoBehaviour
 {
     [SerializeField] private float _speed = 20f;
     
-    public float Speed
-    {
-        get { return _speed; }
-        set { _speed = value; }
-    }
-       
+
     
     private Rigidbody2D _body;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Awaken()
     {
         _body = GetComponent<Rigidbody2D>();
