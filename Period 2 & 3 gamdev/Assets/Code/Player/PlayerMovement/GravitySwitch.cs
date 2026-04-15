@@ -24,7 +24,7 @@ public class GravitySwitch : MonoBehaviour
 
     public void massNorm()
     {
-        _rb.mass = 1;
+        _rb.mass = 0;
     }
 
 
