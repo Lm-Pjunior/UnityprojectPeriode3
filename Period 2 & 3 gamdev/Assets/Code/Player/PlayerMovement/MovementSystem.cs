@@ -6,6 +6,11 @@ using UnityEngine.UIElements;
 public class MovementSystem : MonoBehaviour
 {
     [SerializeField] private float _speed = 20f;
+    public float Speed
+    {
+        get => _speed;
+        set => _speed = value;
+    }
     
 
     
