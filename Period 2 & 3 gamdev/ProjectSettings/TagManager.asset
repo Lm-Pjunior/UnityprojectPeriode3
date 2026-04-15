@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Grounded
-  - GravityTrigger
   layers:
   - Default
   - TransparentFX
