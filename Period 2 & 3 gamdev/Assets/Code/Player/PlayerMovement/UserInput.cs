@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UserInput : MonoBehaviour
 {
+    [SerializeField] private string _sceneName;
     private MovementSystem _playerMovement;
    [SerializeField] private GravitySwitch _switchGravity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,7 +51,13 @@ public class UserInput : MonoBehaviour
             _switchGravity.gravitySwitch();
         }
         
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Debug.Log("escape to menu");
 
+            SceneManager.LoadScene(_sceneName);
+
+        }
     }
     
 }

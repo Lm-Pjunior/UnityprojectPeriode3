@@ -6282,6 +6282,10 @@ MonoBehaviour:
   _GameObjectName: {fileID: 1572419483}
   _GameObjectSpawnLocation:
   - {fileID: 1163472990}
+  - {fileID: 1163472990}
+  - {fileID: 1163472990}
+  - {fileID: 1163472990}
+  - {fileID: 1163472990}
 --- !u!1 &706718558
 GameObject:
   m_ObjectHideFlags: 0

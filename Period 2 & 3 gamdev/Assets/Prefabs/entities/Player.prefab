@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e0992c38c71154cb65f94902eb9daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneName: Menu
   _switchGravity: {fileID: 6390443820994863794}
 --- !u!114 &7344416881805281152
 MonoBehaviour:
