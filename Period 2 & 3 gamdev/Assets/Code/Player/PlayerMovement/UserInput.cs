@@ -5,6 +5,7 @@ public class UserInput : MonoBehaviour
 {
     [SerializeField] private string _sceneName;
     private MovementSystem _playerMovement;
+    private GravityObject _gravityObject;
    [SerializeField] private GravitySwitch _switchGravity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
   
@@ -12,6 +13,7 @@ public class UserInput : MonoBehaviour
     {
         _playerMovement = GetComponent<MovementSystem>();
         if (_playerMovement != null) _playerMovement.Awaken();
+        _gravityObject = GetComponent<GravityObject>();
         
     }
 
@@ -49,6 +51,7 @@ public class UserInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             _switchGravity.gravitySwitch();
+            _gravityObject.gravityControl();
         }
         
         if (Input.GetKey(KeyCode.Escape))

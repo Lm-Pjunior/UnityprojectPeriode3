@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class GravitySwitch : MonoBehaviour
 {
+
     [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private GravityLock _permission;
 
     private float setGravity;
 
+    private void Start()
+    {
+        _permission = FindAnyObjectByType<GravityLock>();
 
+    }
     public void gravitySwitch()
     {
-        //I should put the gameobject here that i want to chance
+        if (_permission.lockGravity())
+        {
+            _rb.gravityScale *= -1;
+        }
         
-        _rb.gravityScale *= -1;
-        setGravity = _rb.gravityScale;
         //_setGravity = _setGravity; //it doesn't catch this command line
     }
 
