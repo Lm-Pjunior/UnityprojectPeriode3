@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GravityLock : MonoBehaviour
@@ -20,18 +21,27 @@ public class GravityLock : MonoBehaviour
         {
             _locked = true;
         }
-        else
+          
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
         {
             _locked = false;
         }
-    }   
+    }
     public bool lockGravity()
     {
         if (_locked)
         {
-            return _locked;
+            return true;
         }
-        return false;
+        else 
+        {
+            return false;
+        }
+            
     }
     
 }

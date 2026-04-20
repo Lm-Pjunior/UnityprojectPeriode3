@@ -13,7 +13,7 @@ public class UserInput : MonoBehaviour
     {
         _playerMovement = GetComponent<MovementSystem>();
         if (_playerMovement != null) _playerMovement.Awaken();
-        _gravityObject = GetComponent<GravityObject>();
+        _gravityObject = FindAnyObjectByType<GravityObject>();
         
     }
 
